@@ -1,6 +1,6 @@
 using System;
 
-namespace ConfigurJWT
+namespace JWTAuthentication
 {
     public class WeatherForecast
     {

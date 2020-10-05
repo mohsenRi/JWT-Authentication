@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ConfigurJWT": {
+    "JWTAuthentication": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ConfigurJWT.Controllers
+namespace JWTAuthentication.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -57,6 +57,8 @@ namespace ConfigurJWT.Controllers
                 claims: new[] {new Claim(ClaimTypes.Name, username)},
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: signinCredential); 
+
+            
             return securityToken.ToString();
         }
     }
