@@ -58,8 +58,8 @@ namespace JWTAuthentication.Controllers
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: signinCredential); 
 
-            
-            return securityToken.ToString();
+            JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+            return jwtSecurityTokenHandler.WriteToken(securityToken);
         }
     }
 }
