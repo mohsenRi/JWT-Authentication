@@ -1,4 +1,4 @@
-﻿namespace JWTAuthentication.Models
+﻿namespace ClientApp.Models
 {
     public class User
     {

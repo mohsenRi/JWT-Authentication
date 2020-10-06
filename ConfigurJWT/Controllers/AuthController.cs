@@ -38,12 +38,8 @@ namespace JWTAuthentication.Controllers
             }
             else
             {
-                var token = GenerateJwtToken(validUser);
-                return Ok(new
-                {
-                    userInfo=validUser,
-                    token=token
-                });
+                validUser.Token = GenerateJwtToken(validUser);
+                return Ok(validUser);
             }
             
         }
