@@ -26,7 +26,7 @@ namespace ClientApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddHttpClient("EshopClient", client =>
+            services.AddHttpClient("ClientApp", client =>
             {
                 client.BaseAddress = new Uri("http://localhost:65206");
 

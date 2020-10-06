@@ -35,7 +35,7 @@ namespace ClientApp.Controllers
                 return View(login);
             }
 
-            var client = _httpClientFactory.CreateClient("EshopClient");
+            var client = _httpClientFactory.CreateClient("ClientApp");
             var jsonBody = JsonConvert.SerializeObject(login);
             var content = new StringContent(jsonBody,Encoding.UTF8,"application/json");
             var response = client.PostAsync("/Api/Auth/Login", content).Result;
