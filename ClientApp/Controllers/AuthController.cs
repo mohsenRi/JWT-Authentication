@@ -15,7 +15,7 @@ namespace ClientApp.Controllers
 {
     public class AuthController : Controller
     {
-        private IHttpClientFactory _httpClientFactory;
+        private readonly IHttpClientFactory _httpClientFactory;
 
         public AuthController(IHttpClientFactory httpClientFactory)
         {
@@ -42,13 +42,13 @@ namespace ClientApp.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var token = response.Content.ReadAsStringAsync().Result;
-                var valuses = JsonConvert.DeserializeObject<User>(token);
+                var values = JsonConvert.DeserializeObject<User>(token);
                 var claims=new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier,login.UserName),
                     new Claim(ClaimTypes.Name,login.UserName),
-                    new Claim(ClaimTypes.Role,valuses.RoleName),
-                    new Claim("AccessToken",valuses.Token)
+                    new Claim(ClaimTypes.Role,values.RoleName),
+                    new Claim("AccessToken",values.Token)
                 };
                 var identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal=new ClaimsPrincipal(identity);
@@ -65,10 +65,6 @@ namespace ClientApp.Controllers
                 ModelState.AddModelError("Username","User Not Valid");
                 return View(login);
             }
-
-
-
-           
 
         }
     }
